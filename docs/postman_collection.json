@@ -1,0 +1,1671 @@
+{
+	"info": {
+		"_postman_id": "42807c62-09bd-4b81-8f33-3db3a29c93de",
+		"name": "python-website-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Curriculum",
+			"item": [
+				{
+					"name": "/curriculum/<int:segment_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/curriculum/<int:segment_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"curriculum",
+								"<int:segment_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Segment",
+			"item": [
+				{
+					"name": "/segment/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/segment/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"segment",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/segment/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/segment/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"segment",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/segments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/segments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"segments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/segment/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test updated",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "description updated",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/segment/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"segment",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/segments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/segments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"segments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Resume",
+			"item": [
+				{
+					"name": "/resume/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/resume/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resume",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/resume/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/resume/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resume",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/resume/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "description updated",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/resume/10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resume",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/resumes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/resumes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resumes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/resumes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "description test",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/resumes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resumes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Graduation",
+			"item": [
+				{
+					"name": "/graduation/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/graduation/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"graduation",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/graduations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/graduations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"graduations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/graduation/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/graduation/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"graduation",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/graduations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "course",
+									"value": "course test",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "institution test",
+									"type": "text"
+								},
+								{
+									"key": "started_at",
+									"value": "2010-01-01",
+									"type": "text"
+								},
+								{
+									"key": "ended_at",
+									"value": "2015-12-31",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/graduations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"graduations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/graduation/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "course",
+									"value": "course updated",
+									"type": "text"
+								},
+								{
+									"key": "institution",
+									"value": "institution updated",
+									"type": "text"
+								},
+								{
+									"key": "started_at",
+									"value": "2011-01-01",
+									"type": "text"
+								},
+								{
+									"key": "ended_at",
+									"value": "2016-12-31",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/graduation/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"graduation",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Certitication",
+			"item": [
+				{
+					"name": "/certification/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/certification/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"certification",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/certification/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/certification/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"certification",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/certifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/certifications",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"certifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/certifications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test",
+									"type": "text"
+								},
+								{
+									"key": "organization",
+									"value": "Organization test",
+									"type": "text"
+								},
+								{
+									"key": "issued_at",
+									"value": "2010-01-01",
+									"type": "text"
+								},
+								{
+									"key": "expires_at",
+									"value": "2020-01-01",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/certifications",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"certifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/certification/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test updated",
+									"type": "text"
+								},
+								{
+									"key": "organization",
+									"value": "Organization test updated",
+									"type": "text"
+								},
+								{
+									"key": "issued_at",
+									"value": "2010-12-31",
+									"type": "text"
+								},
+								{
+									"key": "expires_at",
+									"value": "2020-12-31",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/certification/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"certification",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Skill",
+			"item": [
+				{
+					"name": "/skill/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/skill/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"skill",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/skill/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/skill/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"skill",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/skills",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/skills",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description test",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/skills",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/skill/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test updated",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description test updated",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/skill/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"skill",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "/company/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/company/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/companies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/companies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test",
+									"type": "text"
+								},
+								{
+									"key": "position",
+									"value": "Position test",
+									"type": "text"
+								},
+								{
+									"key": "assignments",
+									"value": "Assignments test",
+									"type": "text"
+								},
+								{
+									"key": "started_at",
+									"value": "2010-01-01",
+									"type": "text"
+								},
+								{
+									"key": "ended_at",
+									"value": "2020-01-01",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/companies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/company/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test updated",
+									"type": "text"
+								},
+								{
+									"key": "position",
+									"value": "Position test updated",
+									"type": "text"
+								},
+								{
+									"key": "assignments",
+									"value": "Assignments test updated",
+									"type": "text"
+								},
+								{
+									"key": "started_at",
+									"value": "2010-12-31",
+									"type": "text"
+								},
+								{
+									"key": "ended_at",
+									"value": "2020-12-31",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/company/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "/product/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/product/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description test",
+									"type": "text"
+								},
+								{
+									"key": "created_at",
+									"value": "2020-01-01",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "http://www.example.com",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/product/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test updated",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description test updated",
+									"type": "text"
+								},
+								{
+									"key": "created_at",
+									"value": "2020-12-31",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "http://www.example.com",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/product/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Presentation",
+			"item": [
+				{
+					"name": "/presentation/<int:_id>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/presentation/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presentation",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/presentation/<int:_id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/presentation/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presentation",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/presentations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/presentations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presentations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/presentations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test",
+									"type": "text"
+								},
+								{
+									"key": "performed_at",
+									"value": "2020-01-01",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Brasília",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "DF",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Brazil",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/presentations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presentations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/presentation/<int:_id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Name test updated",
+									"type": "text"
+								},
+								{
+									"key": "performed_at",
+									"value": "2020-12-31",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "New York",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "CA",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Los Angeles",
+									"type": "text"
+								},
+								{
+									"key": "segment_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/presentation/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presentation",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.test(\"access_token not empty\", function () {",
+									"    pm.expect(jsonData.access_token).not.eql(undefined);",
+									"});",
+									"",
+									"pm.test(\"refresh token not empty\", function () {",
+									"    pm.expect(jsonData.refresh_token).not.eql(undefined);",
+									"});",
+									"",
+									"// set access token as environement variable",
+									"if (jsonData.access_token !== undefined) {",
+									"    postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
+									"} else {",
+									"    postman.setEnvironmentVariable(\"access_token\", null);",
+									"}",
+									"",
+									"// set refresh token as environement variable",
+									"if (jsonData.refresh_token !== undefined) {",
+									"    postman.setEnvironmentVariable(\"refresh_token\", jsonData.refresh_token);",
+									"} else {",
+									"    postman.setEnvironmentVariable(\"refresh_token\", null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\" : \"user@email.com\",\n  \"password\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.test(\"access_token not empty\", function () {",
+									"    pm.expect(jsonData.access_token).not.eql(undefined);",
+									"});",
+									"",
+									"pm.test(\"refresh token not empty\", function () {",
+									"    pm.expect(jsonData.refresh_token).not.eql(undefined);",
+									"});",
+									"",
+									"// set access token as environement variable",
+									"if (jsonData.access_token !== undefined) {",
+									"    postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
+									"} else {",
+									"    postman.setEnvironmentVariable(\"access_token\", null);",
+									"}",
+									"",
+									"// set refresh token as environement variable",
+									"if (jsonData.refresh_token !== undefined) {",
+									"    postman.setEnvironmentVariable(\"refresh_token\", jsonData.refresh_token);",
+									"} else {",
+									"    postman.setEnvironmentVariable(\"refresh_token\", null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\" : \"user@email.com\",\n  \"password\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/change-password/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"change-password",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"access_token not empty\", function () {",
+									"    pm.expect(jsonData.access_token).not.eql(undefined);",
+									"});",
+									"",
+									"// set access token as environement variable",
+									"if (jsonData.access_token !== undefined) {",
+									"    postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
+									"} else {",
+									"    postman.setEnvironmentVariable(\"access_token\", null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{refresh_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/<int:_id>",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/user/<int:_id>",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"<int:_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
