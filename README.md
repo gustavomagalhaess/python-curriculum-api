@@ -36,13 +36,14 @@ The purpose of this project is provide a Curriculum Vitae API with a professiona
 
 ## 🗁 File System Tree <a name = "file_system"></a>
 
-    ├── database/                     # Database files 
-    ├── docs/                         # Documentation files 
-    ├── models/                       # Model files 
-    ├── resources/                    # Resource tests 
+    ├── database/            # Database files 
+    ├── docs/                # Documentation files 
+    ├── models/              # Model files 
+    ├── resources/           # Resource tests 
     ├── app.py
     ├── blacklist.py
     ├── curriculum-vitae.png
+    ├── .gitignore
     ├── requirements.txt
     └── README.md
 
