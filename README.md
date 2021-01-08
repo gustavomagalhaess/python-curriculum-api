@@ -39,7 +39,7 @@ The purpose of this project is provide a Curriculum Vitae API with a professiona
     ├── database/            # Database files 
     ├── docs/                # Documentation files 
     ├── models/              # Model files 
-    ├── resources/           # Resource tests 
+    ├── resources/           # Resource files 
     ├── app.py
     ├── blacklist.py
     ├── curriculum-vitae.png
