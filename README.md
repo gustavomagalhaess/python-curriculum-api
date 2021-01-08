@@ -33,6 +33,18 @@
 
 The purpose of this project is provide a Curriculum Vitae API with a professional career information.
 
+## File System Tree
+
+    ├── database/                     # Database files 
+    ├── docs/                         # Documentation files 
+    ├── models/                       # Model files 
+    ├── resources/                    # Resource tests 
+    ├── app.py
+    ├── blacklist.py
+    ├── curriculum-vitae.png
+    ├── requirements.txt
+    └── README.md
+
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
