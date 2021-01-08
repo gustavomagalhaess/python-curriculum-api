@@ -11,7 +11,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/GustavoMagalhaess/python-curriculum-api?style=plastic&logo=appveyor)](https://github.com/GustavoMagalhaess/python-curriculum-api/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/GustavoMagalhaess/python-curriculum-api?style=plastic&logo=appveyor)](https://github.com/GustavoMagalhaess/python-curriculum-api/pulls)
 [![GitHub Stars](https://img.shields.io/github/stars/GustavoMagalhaess/python-curriculum-api?style=plastic&logo=appveyor)](https://github.com/GustavoMagalhaess/python-curriculum-api/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/GustavoMagalhaess/python-curriculum-api?style=plastic&logo=appveyor)](https://github.com/GustavoMagalhaess/python-curriculum-api/pulls)
+[![GitHub Forks](https://img.shields.io/github/forks/GustavoMagalhaess/python-curriculum-api?style=plastic&logo=appveyor)](https://github.com/GustavoMagalhaess/python-curriculum-api/network/members)
 
 </div>
 
