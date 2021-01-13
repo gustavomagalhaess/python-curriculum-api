@@ -12,14 +12,14 @@ class SkillModel(db.Model, Model):
     segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable = False, default = 1)
     segment     = db.relationship('SegmentModel')
 
-    def __init__(self, name, description, level, segment_id, _id = None):
+    def __init__(self, name: str, description: str, level: int, segment_id: int, _id: int = None) -> None:
         self.id          = _id
         self.name        = name
         self.description = description
         self.level       = level
         self.segment_id  = segment_id
 
-    def json(self):
+    def json(self) -> dict:
         return {
             'id': self.id,
             'name': self.name,
@@ -29,5 +29,5 @@ class SkillModel(db.Model, Model):
             'segment': {'id': self.segment.id, 'name': self.segment.name}
         }
     
-    def curriculum_json(self):
+    def curriculum_json(self) -> dict:
         return {'id': self.id, 'name': self.name, 'level': self.level}

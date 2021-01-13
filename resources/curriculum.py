@@ -11,10 +11,10 @@ from models.presentation import PresentationModel
 
 class Curriculum(Resource, ResourceHelper):
     
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__(None)
 
-    def get(self, segment_id):
+    def get(self, segment_id: int) -> dict:
         resume = ResumeModel.get_current_by_segment(segment_id)
         graduations = GraduationModel.get_all_by_segment(segment_id, True)
         certifications = CertificationModel.get_all_by_segment(segment_id)

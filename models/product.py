@@ -14,7 +14,7 @@ class ProductModel(db.Model, Model):
     company_id  = db.Column(db.Integer, db.ForeignKey('companies.id'))
     company     = db.relationship('CompanyModel')
 
-    def __init__(self, name, description, created_at, segment_id, url = None, company_id = None, _id = None):
+    def __init__(self, name: str, description: str, created_at: datetime, segment_id: int, url: str = None, company_id: int = None, _id: int = None) -> None:
         self.id          = _id
         self.name        = name
         self.description = description
@@ -23,7 +23,7 @@ class ProductModel(db.Model, Model):
         self.segment_id  = segment_id
         self.company_id  = company_id
 
-    def json(self):
+    def json(self) -> dict:
         return {
             'id': self.id,
             'name': self.name,
@@ -34,5 +34,5 @@ class ProductModel(db.Model, Model):
             'company': {'id': self.company.id, 'name': self.company.name} if self.company else None
         }
     
-    def curriculum_json(self):
+    def curriculum_json(self) -> dict:
         return {'id': self.id, 'name': self.name}

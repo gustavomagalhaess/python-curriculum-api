@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from models.resume import ResumeModel
+from models.resume import Model, ResumeModel
 from resources.resource import Resource as ResourceHelper, non_empty_string
 from flask_jwt_extended import jwt_required
 
@@ -9,33 +9,33 @@ parser.add_argument('segment_id', type=non_empty_string, required=True, help="Re
 
 class Resume(Resource, ResourceHelper):
 
-    def __init__(self, model = ResumeModel):
+    def __init__(self, model: Model = ResumeModel) -> None:
         super().__init__(model)
     
-    def get(self, _id):
+    def get(self, _id: int) -> dict:
         return self.find_by_id(_id)
     
     @jwt_required
-    def put(self, _id):
+    def put(self, _id: int) -> list:
         data = parser.parse_args()
 
         return self.update(_id, data)
 
     @jwt_required
-    def delete(self, _id):
+    def delete(self, _id: int) -> list:
         return self.destroy(_id)
 
 
 class ResumeList(Resource, ResourceHelper):
     
-    def __init__(self, model = ResumeModel):
+    def __init__(self, model: Model = ResumeModel) -> None:
         super().__init__(model)
 
-    def get(self):
+    def get(self) -> list:
         return self.get_all()
 
     @jwt_required
-    def post(self):
+    def post(self) -> list:
         data = parser.parse_args()
 
         return self.store(data)

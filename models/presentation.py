@@ -15,7 +15,7 @@ class PresentationModel(db.Model, Model):
     company_id   = db.Column(db.Integer, db.ForeignKey('companies.id'))
     company      = db.relationship('CompanyModel')
 
-    def __init__(self, name, performed_at, city, country, segment_id, state = None, company_id = None, _id = None):
+    def __init__(self, name: str, performed_at: datetime, city: str, country: str, segment_id: int, state: str = None, company_id: int = None, _id: int = None) -> None:
         self.id           = _id
         self.name         = name
         self.performed_at = string_to_date(performed_at)
@@ -25,7 +25,7 @@ class PresentationModel(db.Model, Model):
         self.segment_id   = segment_id
         self.company_id   = company_id
 
-    def json(self):
+    def json(self) -> dict:
         return {
             'id': self.id,
             'name': self.name,
@@ -37,5 +37,5 @@ class PresentationModel(db.Model, Model):
             'company': {'id': self.company.id, 'name': self.company.name} if self.company else None
         }
 
-    def curriculum_json(self):
+    def curriculum_json(self) -> dict:
         return {'id': self.id, 'name': self.name, 'performed_at': self.performed_at.isoformat()}

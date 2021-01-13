@@ -12,7 +12,7 @@ class GraduationModel(db.Model, Model):
     segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable = False, default = 1)
     segment     = db.relationship('SegmentModel')
 
-    def __init__(self, course, institution, started_at, segment_id, ended_at = None, _id = None):
+    def __init__(self, course: str, institution: str, started_at: datetime, segment_id: int, ended_at: datetime = None, _id: int = None) -> None:
         self.id          = _id
         self.course      = course
         self.institution = institution
@@ -20,7 +20,7 @@ class GraduationModel(db.Model, Model):
         self.ended_at    = string_to_date(ended_at) if ended_at else None
         self.segment_id  = segment_id
 
-    def json(self):
+    def json(self) -> dict:
         return {
             'id': self.id,
             'course': self.course,

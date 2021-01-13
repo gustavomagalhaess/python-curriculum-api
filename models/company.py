@@ -17,7 +17,7 @@ class CompanyModel(db.Model, Model):
     products      = db.relationship('ProductModel', lazy='dynamic')
     presentations = db.relationship('PresentationModel', lazy='dynamic')
 
-    def __init__(self, name, position, assignments, started_at, segment_id, ended_at = None, _id = None):
+    def __init__(self, name: str, position: str, assignments: str, started_at: datetime, segment_id: int, ended_at: datetime = None, _id: int = None) -> None:
         self.id          = _id
         self.name        = name
         self.position    = position
@@ -26,7 +26,7 @@ class CompanyModel(db.Model, Model):
         self.ended_at    = string_to_date(ended_at) if ended_at else None
         self.segment_id  = segment_id
 
-    def json(self):
+    def json(self) -> dict:
         return {
             'id': self.id,
             'name': self.name,
@@ -39,7 +39,7 @@ class CompanyModel(db.Model, Model):
             'presentations': [presentation.json() for presentation in self.presentations.all()]
         }
     
-    def curriculum_json(self):
+    def curriculum_json(self) -> dict:
         return {
             'id': self.id, 
             'name': self.name, 

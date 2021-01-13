@@ -12,7 +12,7 @@ class CertificationModel(db.Model, Model):
     segment_id   = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable = False, default = 1)
     segment      = db.relationship('SegmentModel')
 
-    def __init__(self, name, organization, issued_at, segment_id, expires_at = None, _id = None):
+    def __init__(self, name: str, organization: str, issued_at: datetime, segment_id: int, expires_at: datetime = None, _id: int = None) -> None:
         self.id           = _id
         self.name         = name
         self.organization = organization
@@ -20,7 +20,7 @@ class CertificationModel(db.Model, Model):
         self.expires_at   = string_to_date(expires_at) if expires_at else None
         self.segment_id   = segment_id
 
-    def json(self):
+    def json(self) -> dict:
         return {
             'id': self.id,
             'name': self.name,
@@ -30,5 +30,5 @@ class CertificationModel(db.Model, Model):
             'segment': {'id': self.segment.id, 'name': self.segment.name}
         }
 
-    def curriculum_json(self):
+    def curriculum_json(self) -> dict:
         return {'id': self.id, 'name': self.name}
