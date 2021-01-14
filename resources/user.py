@@ -9,7 +9,7 @@ from flask_jwt_extended import (
     get_raw_jwt,
     jwt_required
 )
-from models.model import DataBaseException, string_to_date
+from models.model import Model, DataBaseException, string_to_date
 from models.user import UserModel
 from resources.resource import non_empty_string
 from blacklist import BLACKLIST
@@ -20,11 +20,11 @@ parser.add_argument('password', type=non_empty_string, required=True, help='Requ
 
 class User(Resource, ResourceHelper):
 
-    def __init__(self, model = UserModel):
+    def __init__(self, model: Model = UserModel) -> None:
         super().__init__(model)
     
     @jwt_required
-    def get(self, _id):
+    def get(self, _id: int) -> dict:
         current_user = get_jwt_identity()
         user = self.model.find_by_id(_id)
         if current_user and user and current_user == user.id:
@@ -34,7 +34,7 @@ class User(Resource, ResourceHelper):
 
 
 class ChangePassword(Resource):
-    def __init__(self, model = UserModel):
+    def __init__(self, model: Model = UserModel) -> None:
             self.model = model
     
     def put(self):
@@ -44,10 +44,10 @@ class ChangePassword(Resource):
  
 class Login(Resource):
 
-    def __init__(self, model = UserModel):
+    def __init__(self, model: Model = UserModel) -> None:
         self.model = model
 
-    def post(self):
+    def post(self) -> dict:
         data = parser.parse_args()
         user = self.model.find_by_username(data['username'])
         if user and safe_str_cmp(user.password, data['password']):
@@ -62,7 +62,7 @@ class Login(Resource):
 class Logout(Resource):
 
     @jwt_required
-    def post(self):
+    def post(self) -> dict:
         jti = get_raw_jwt()['jti']
         BLACKLIST.add(jti)
 
@@ -72,7 +72,7 @@ class Logout(Resource):
 class TokenRefresh(Resource):
 
     @jwt_refresh_token_required
-    def post(self):
+    def post(self) -> dict:
         current_user = get_jwt_identity()
         new_token = create_access_token(identity=current_user, fresh=False)
 

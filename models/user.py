@@ -1,3 +1,4 @@
+from __future__ import annotations
 from database.db import db
 from models.model import Model, datetime
 
@@ -10,14 +11,14 @@ class UserModel(db.Model, Model):
     created_at = db.Column(db.Date(), nullable = False, default = datetime.date.today())
     updated_at = db.Column(db.Date())
 
-    def __init__(self, _id, username, password, created_at = None, updated_at = None):
+    def __init__(self, _id: int, username: str, password: str, created_at: datetime = None, updated_at: datetime = None) -> None:
         self.id         = _id
         self.username   = username
         self.password   = password
         self.created_at = created_at
         self.updated_at = updated_at
     
-    def json(self):
+    def json(self) -> dict:
         return {
             'username': self.username,
             'created_at': self.created_at.isoformat(),
@@ -25,5 +26,5 @@ class UserModel(db.Model, Model):
         }
 
     @classmethod
-    def find_by_username(cls, username):
-        return cls.query.filter_by(username=username).first()
+    def find_by_username(cls, username: str) -> Model:
+        return cls.query.filter_by(username = username).first()
