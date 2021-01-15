@@ -1,7 +1,7 @@
 '''
-UserResource Module
+User Resource Module
 
-This module contains only UserResource methods.
+This module contains only user resource methods.
 '''
 
 from flask_restful import Resource, reqparse
@@ -26,9 +26,9 @@ parser.add_argument('password', type=non_empty_string, required=True, help='Requ
 
 class User(Resource, ResourceHelper):
     '''
-    UserResource Class
+    User Resource Class
 
-    This class contains only UserResource methods.
+    This class contains only user resource methods.
     '''
     def __init__(self, model: Model = UserModel) -> None:
         '''
