@@ -32,7 +32,7 @@ class User(Resource, ResourceHelper):
     '''
     def __init__(self, model: Model = UserModel) -> None:
         '''
-        Usert Resource Constructor
+        User Resource Constructor
 
         Loads the UserModel passed as param.
         '''
