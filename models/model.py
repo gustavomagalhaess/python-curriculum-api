@@ -44,7 +44,7 @@ class Model():
     @classmethod
     def find_by_id(cls, _id: int) -> Model:
         '''
-        Returns the item found by id there is saved in database.
+        Returns an item found by id there is saved in database.
         '''
         return cls.query.filter_by(id = _id).first()
     
@@ -65,7 +65,7 @@ class Model():
     @classmethod
     def get_current_by_segment(cls, segment_id: int) -> Model:
         '''
-        Returns the item by segment_id there is saved in database.
+        Returns an item by segment_id there is saved in database.
         '''
         return cls.query.filter_by(segment_id = segment_id).order_by(cls.id.desc()).first()
 

@@ -76,7 +76,7 @@ class Resource():
     
     def get_all(self) -> dict:
         '''
-        Accesses Model.get_all() and returns a list of items.
+        Accesses Model.get_all() and returns a items list.
         '''
         items = self.model.get_all()
 
@@ -84,7 +84,7 @@ class Resource():
     
     def find_by_id(self, _id: int) -> dict:
         '''
-        Accesses Model.find_by_id() and retuns the item serached by id.
+        Accesses Model.find_by_id() and retuns the serached item by id.
         '''
         item = self.model.find_by_id(_id)
         if item:
@@ -94,7 +94,7 @@ class Resource():
     
     def store(self, data: dict) -> dict:
         '''
-        Accesses Model.save() to insert the item load by passed data and returns a list of items saved.
+        Accesses Model.save() to insert the item load by passed data and returns a list of saved items.
         '''
         item = self.model(**data)
         try:            
@@ -107,7 +107,7 @@ class Resource():
     
     def update(self, _id, data: dict) -> dict:
         '''
-        Accesses Model.save() to update the item found by passed id and returns a list of items saved.
+        Accesses Model.save() to update the item found by passed id and returns a list of saved items.
         '''
         item = self.model.find_by_id(_id)
         if item:
@@ -125,7 +125,7 @@ class Resource():
     
     def destroy(self, _id: int) -> dict:
         '''
-        Accesses Model.delete() to delete the item found by passed id and returns a list of items saved.
+        Accesses Model.delete() to delete the item found by passed id and returns a list of saved items.
         '''
         item = self.model.find_by_id(_id)
         if item:
