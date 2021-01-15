@@ -1,3 +1,9 @@
+'''
+UserResource Module
+
+This module contains only UserResource methods.
+'''
+
 from flask_restful import Resource, reqparse
 from resources.resource import Resource as ResourceHelper
 from werkzeug.security import safe_str_cmp
@@ -19,12 +25,25 @@ parser.add_argument('username', type=non_empty_string, required=True, help='Requ
 parser.add_argument('password', type=non_empty_string, required=True, help='Required field')
 
 class User(Resource, ResourceHelper):
+    '''
+    UserResource Class
 
+    This class contains only UserResource methods.
+    '''
     def __init__(self, model: Model = UserModel) -> None:
+        '''
+        Usert Resource Constructor
+
+        Loads the UserModel passed as param.
+        '''
         super().__init__(model)
     
     @jwt_required
     def get(self, _id: int) -> dict:
+        '''
+        Accesses UserModel.get_all() and returns the serached user by id. The user is allowed to 
+        access your own data.
+        '''
         current_user = get_jwt_identity()
         user = self.model.find_by_id(_id)
         if current_user and user and current_user == user.id:
@@ -34,8 +53,18 @@ class User(Resource, ResourceHelper):
 
 
 class ChangePassword(Resource):
+    '''
+    ChangePassword Resource Class
+
+    This module contains only a method to change the password.
+    '''
     def __init__(self, model: Model = UserModel) -> None:
-            self.model = model
+        '''
+        ChangePassword Resource Constructor
+
+        Loads the UserModel passed as param.
+        '''
+        self.model = model
     
     def put(self):
         #TODO Implement by access link
@@ -43,11 +72,24 @@ class ChangePassword(Resource):
 
  
 class Login(Resource):
+    '''
+    Login Resource Class
 
+    This module contains only a method to login the user in app.
+    '''
     def __init__(self, model: Model = UserModel) -> None:
+        '''
+        Login Resource Constructor
+
+        Loads the UserModel passed as param.
+        '''
         self.model = model
 
     def post(self) -> dict:
+        '''
+        Accesses UserModel.find_by_username(), checks the user's credentials passed in request and 
+        return an access token and a refresh token if the user's credentials are right.
+        '''
         data = parser.parse_args()
         user = self.model.find_by_username(data['username'])
         if user and safe_str_cmp(user.password, data['password']):
@@ -60,9 +102,16 @@ class Login(Resource):
 
 
 class Logout(Resource):
+    '''
+    Logout Resource Class
 
+    This module contains only a method to logout the user from app.
+    '''
     @jwt_required
     def post(self) -> dict:
+        '''
+        Logouts the user from app.
+        '''
         jti = get_raw_jwt()['jti']
         BLACKLIST.add(jti)
 
@@ -70,9 +119,16 @@ class Logout(Resource):
 
 
 class TokenRefresh(Resource):
+    '''
+    TokenRefresh Resource Class
 
+    This module contains only a method to refresh the user's access token when expired.
+    '''
     @jwt_refresh_token_required
     def post(self) -> dict:
+        '''
+        Refreshes the user's access token.
+        '''
         current_user = get_jwt_identity()
         new_token = create_access_token(identity=current_user, fresh=False)
 
