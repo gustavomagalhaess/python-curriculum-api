@@ -1,7 +1,17 @@
+'''
+SkillModel Module
+
+This module contains only SkillModel methods.
+'''
 from database.db import db
 from models.model import Model, datetime
 
 class SkillModel(db.Model, Model):
+    '''
+    SkillModel Class
+
+    This class contains only SkillModel methods and represents the skills table in database.
+    '''
     __tablename__ = 'skills'
 
     id          = db.Column(db.Integer, primary_key = True)
@@ -13,6 +23,9 @@ class SkillModel(db.Model, Model):
     segment     = db.relationship('SegmentModel')
 
     def __init__(self, name: str, description: str, level: int, segment_id: int, _id: int = None) -> None:
+        '''
+        Loads a SkillModel.
+        '''
         self.id          = _id
         self.name        = name
         self.description = description
@@ -20,6 +33,9 @@ class SkillModel(db.Model, Model):
         self.segment_id  = segment_id
 
     def json(self) -> dict:
+        '''
+        Retruns a SkillModel as a json format.
+        '''
         return {
             'id': self.id,
             'name': self.name,
@@ -30,4 +46,7 @@ class SkillModel(db.Model, Model):
         }
     
     def curriculum_json(self) -> dict:
+        '''
+        Retruns a reduced SkillModel as a json format.
+        '''
         return {'id': self.id, 'name': self.name, 'level': self.level}

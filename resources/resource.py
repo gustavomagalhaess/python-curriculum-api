@@ -76,7 +76,7 @@ class Resource():
     
     def get_all(self) -> dict:
         '''
-        Accesses Model.get_all() and returns a items list.
+        Accesses Model.get_all() and returns items list.
         '''
         items = self.model.get_all()
 

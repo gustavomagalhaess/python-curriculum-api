@@ -1,7 +1,7 @@
 '''
 UserModel Module
 
-This module contains only user's model methods.
+This module contains only UserModel methods.
 '''
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ class UserModel(db.Model, Model):
     '''
     UserModel Class
 
-    This class contains only UserModel methods and represents the user table in database.
+    This class contains only UserModel methods and represents the users table in database.
     '''
     __tablename__ = 'users'
 
