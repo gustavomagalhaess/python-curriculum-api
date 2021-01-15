@@ -78,10 +78,10 @@ class Model():
             db.session.commit()
         except IntegrityError as e:
             db.session.rollback()
-            raise DataBaseException('There already is this item saved.')
+            raise DataBaseException('There already is this saved item.')
         except SQLAlchemyError as e:
             db.session.rollback()
-            raise DataBaseException('An error occurred saving the item.')
+            raise DataBaseException('An error occurred saving this item.')
 
     def delete(self) -> None:
         '''
@@ -92,4 +92,4 @@ class Model():
             db.session.commit()
         except SQLAlchemyError as e:
             db.session.rollback()
-            raise DataBaseException('An error occurred deleting the item.')
+            raise DataBaseException('An error occurred deleting this item.')
