@@ -1,7 +1,7 @@
 '''
 User Resource Module
 
-This module contains only user resource methods.
+This module contains only users resource methods.
 '''
 
 from flask_restful import Resource, reqparse
@@ -28,7 +28,7 @@ class User(Resource, ResourceHelper):
     '''
     User Resource Class
 
-    This class contains only user resource methods.
+    This class contains only User resource methods.
     '''
     def __init__(self, model: Model = UserModel) -> None:
         '''

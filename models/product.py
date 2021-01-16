@@ -1,7 +1,18 @@
+'''
+ProductModel Module
+
+This module contains only ProductModel methods.
+'''
+
 from database.db import db
 from models.model import Model, datetime, string_to_date
 
 class ProductModel(db.Model, Model):
+    '''
+    ProductModel Class
+
+    This class contains only ProductModel methods and represents the products table in database.
+    '''
     __tablename__ = 'products'
 
     id          = db.Column(db.Integer, primary_key = True)
@@ -15,6 +26,9 @@ class ProductModel(db.Model, Model):
     company     = db.relationship('CompanyModel')
 
     def __init__(self, name: str, description: str, created_at: datetime, segment_id: int, url: str = None, company_id: int = None, _id: int = None) -> None:
+        '''
+        Loads a ProductModel.
+        '''
         self.id          = _id
         self.name        = name
         self.description = description
@@ -24,6 +38,9 @@ class ProductModel(db.Model, Model):
         self.company_id  = company_id
 
     def json(self) -> dict:
+        '''
+        Retruns a ProductModel as a json format.
+        '''
         return {
             'id': self.id,
             'name': self.name,
@@ -35,4 +52,7 @@ class ProductModel(db.Model, Model):
         }
     
     def curriculum_json(self) -> dict:
+        '''
+        Retruns a reduced ProductModel as a json format.
+        '''
         return {'id': self.id, 'name': self.name}

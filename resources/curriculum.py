@@ -1,3 +1,9 @@
+'''
+Curriculum Resource Module
+
+This module contains only skills resource methods.
+'''
+
 from flask_restful import Resource
 from resources.resource import Resource as ResourceHelper, check_json, list_map, list_map_curriculum
 from models.segment import SegmentModel
@@ -10,11 +16,22 @@ from models.product import ProductModel
 from models.presentation import PresentationModel
 
 class Curriculum(Resource, ResourceHelper):
-    
+    '''
+    Curriculum Resource Class
+
+    This class contains only Curriculum resource methods.
+    '''
     def __init__(self) -> None:
+        '''
+        Curriculum Resource Constructor
+        '''
         super().__init__(None)
 
     def get(self, segment_id: int) -> dict:
+        '''
+        Accesses ResumeModel, GraduationModel, CertificationModel, SkillModel, CompanyModel, 
+        ProductModel, PresentationModel and returns all information by segment_id.
+        '''
         resume = ResumeModel.get_current_by_segment(segment_id)
         graduations = GraduationModel.get_all_by_segment(segment_id, True)
         certifications = CertificationModel.get_all_by_segment(segment_id)

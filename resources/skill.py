@@ -1,8 +1,9 @@
 '''
 Skill Resource Module
 
-This module contains only skill resource methods.
+This module contains only skills resource methods.
 '''
+
 from flask_restful import Resource, reqparse
 from models.skill import Model, SkillModel
 from resources.resource import Resource as ResourceHelper, non_empty_string
@@ -18,7 +19,7 @@ class Skill(Resource, ResourceHelper):
     '''
     Skill Resource Class
 
-    This class contains only skill resource methods.
+    This class contains only Skill resource methods.
     '''
     def __init__(self, model: Model = SkillModel) -> None:
         '''
@@ -46,9 +47,8 @@ class Skill(Resource, ResourceHelper):
     @jwt_required
     def delete(self, _id: int) -> list:
         '''
-        Accesses Skill.delete() to delete the skill found by passed id and returns a list of saved skilla.
+        Accesses Skill.destroy() to delete the skill found by passed id and returns a list of saved skill.
         '''
-
         return self.destroy(_id)
 
 

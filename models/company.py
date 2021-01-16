@@ -1,9 +1,20 @@
+'''
+CompanyModel Module
+
+This module contains only CompanyModel methods.
+'''
+
 from database.db import db
 from models.model import Model, datetime, string_to_date
 from models.product import ProductModel
 from models.presentation import PresentationModel
 
 class CompanyModel(db.Model, Model):
+    '''
+    CompanyModel Class
+
+    This class contains only CompanyModel methods and represents the companies table in database.
+    '''
     __tablename__ = 'companies'
 
     id            = db.Column(db.Integer, primary_key = True)
@@ -18,6 +29,9 @@ class CompanyModel(db.Model, Model):
     presentations = db.relationship('PresentationModel', lazy='dynamic')
 
     def __init__(self, name: str, position: str, assignments: str, started_at: datetime, segment_id: int, ended_at: datetime = None, _id: int = None) -> None:
+        '''
+        Loads a CompanyModel.
+        '''
         self.id          = _id
         self.name        = name
         self.position    = position
@@ -27,6 +41,9 @@ class CompanyModel(db.Model, Model):
         self.segment_id  = segment_id
 
     def json(self) -> dict:
+        '''
+        Retruns a CompanyModel as a json format.
+        '''
         return {
             'id': self.id,
             'name': self.name,
@@ -40,6 +57,9 @@ class CompanyModel(db.Model, Model):
         }
     
     def curriculum_json(self) -> dict:
+        '''
+        Retruns a reduced CompanyModel as a json format.
+        '''
         return {
             'id': self.id, 
             'name': self.name, 

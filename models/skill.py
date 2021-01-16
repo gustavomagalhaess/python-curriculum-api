@@ -3,6 +3,7 @@ SkillModel Module
 
 This module contains only SkillModel methods.
 '''
+
 from database.db import db
 from models.model import Model, datetime
 
