@@ -1,18 +1,18 @@
-'''
+"""
 GraduationModel Module
 
 This module contains only GraduationModel methods.
-'''
+"""
 
 from database.db import db
 from models.model import Model, datetime, string_to_date
 
 class GraduationModel(db.Model, Model):
-    '''
+    """
     GraduationModel Class
 
     This class contains only GraduationModel methods and represents the graduations table in database.
-    '''
+    """
 
     __tablename__ = 'graduations'
 
@@ -25,9 +25,9 @@ class GraduationModel(db.Model, Model):
     segment     = db.relationship('SegmentModel')
 
     def __init__(self, course: str, institution: str, started_at: datetime, segment_id: int, ended_at: datetime = None, _id: int = None) -> None:
-        '''
+        """
         Loads a GraduationModel.
-        '''
+        """
         self.id          = _id
         self.course      = course
         self.institution = institution
@@ -36,9 +36,9 @@ class GraduationModel(db.Model, Model):
         self.segment_id  = segment_id
 
     def json(self) -> dict:
-        '''
+        """
         Retruns a GraduationModel as a json format.
-        '''
+        """
         return {
             'id': self.id,
             'course': self.course,

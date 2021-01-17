@@ -1,18 +1,18 @@
-'''
+"""
 PresentationModel Module
 
 This module contains only PresentationModel methods.
-'''
+"""
 
 from database.db import db
 from models.model import Model, datetime, string_to_date
 
 class PresentationModel(db.Model, Model):
-    '''
+    """
     PresentationModel Class
 
     This class contains only PresentationModel methods and represents the presentations table in database.
-    '''
+    """
     __tablename__ = 'presentations'
 
     id           = db.Column(db.Integer, primary_key = True)
@@ -27,9 +27,9 @@ class PresentationModel(db.Model, Model):
     company      = db.relationship('CompanyModel')
 
     def __init__(self, name: str, performed_at: datetime, city: str, country: str, segment_id: int, state: str = None, company_id: int = None, _id: int = None) -> None:
-        '''
+        """
         Loads a PresentationModel.
-        '''
+        """
         self.id           = _id
         self.name         = name
         self.performed_at = string_to_date(performed_at)
@@ -40,9 +40,9 @@ class PresentationModel(db.Model, Model):
         self.company_id   = company_id
 
     def json(self) -> dict:
-        '''
+        """
         Retruns a PresentationModel as a json format.
-        '''
+        """
         return {
             'id': self.id,
             'name': self.name,
@@ -55,7 +55,7 @@ class PresentationModel(db.Model, Model):
         }
 
     def curriculum_json(self) -> dict:
-        '''
+        """
         Retruns a reduced PresentationModel as a json format.
-        '''
+        """
         return {'id': self.id, 'name': self.name, 'performed_at': self.performed_at.isoformat()}
