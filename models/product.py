@@ -7,6 +7,7 @@ This module contains only ProductModel methods.
 from database.db import db
 from models.model import Model, datetime, string_to_date
 
+
 class ProductModel(db.Model, Model):
     """
     ProductModel Class
@@ -15,17 +16,18 @@ class ProductModel(db.Model, Model):
     """
     __tablename__ = 'products'
 
-    id          = db.Column(db.Integer, primary_key = True)
-    name        = db.Column(db.String(100), nullable = False, unique = True)
-    description = db.Column(db.String(1000), nullable = False)
-    created_at  = db.Column(db.Date(), nullable = False, default = datetime.date.today())
+    id          = db.Column(db.Integer, primary_key=True)
+    name        = db.Column(db.String(100), nullable=False, unique=True)
+    description = db.Column(db.String(1000), nullable=False)
+    created_at  = db.Column(db.Date(), nullable=False, default=datetime.date.today())
     url         = db.Column(db.String(250))
-    segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable = False, default = 1)
+    segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable=False, default=1)
     segment     = db.relationship('SegmentModel')
     company_id  = db.Column(db.Integer, db.ForeignKey('companies.id'))
     company     = db.relationship('CompanyModel')
 
-    def __init__(self, name: str, description: str, created_at: datetime, segment_id: int, url: str = None, company_id: int = None, _id: int = None) -> None:
+    def __init__(self, name: str, description: str, created_at: datetime, segment_id: int, url: str = None,
+                 company_id: int = None, _id: int = None) -> None:
         """
         Loads a ProductModel.
         """
@@ -50,7 +52,7 @@ class ProductModel(db.Model, Model):
             'segment': {'id': self.segment.id, 'name': self.segment.name},
             'company': {'id': self.company.id, 'name': self.company.name} if self.company else None
         }
-    
+
     def curriculum_json(self) -> dict:
         """
         Retruns a reduced ProductModel as a json format.

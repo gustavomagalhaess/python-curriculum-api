@@ -18,12 +18,14 @@ parser.add_argument('country', type=non_empty_string, required=True, help="Requi
 parser.add_argument('segment_id', type=non_empty_string, required=True, help="Required field")
 parser.add_argument('company_id', type=non_empty_string, required=True, help="Required field")
 
+
 class Presentation(Resource, ResourceHelper):
     """
     Presentation Resource Class
 
     This class contains only Presentation resource methods.
     """
+
     def __init__(self, model: Model = PresentationModel) -> None:
         """
         Presentation Resource Constructor
@@ -31,15 +33,15 @@ class Presentation(Resource, ResourceHelper):
         Loads the PresentationModel passed as param.
         """
         super().__init__(model)
-    
-    def get(self, _id: int) -> dict:
+
+    def get(self, _id: int) -> tuple:
         """
         Accesses Presentation.find_by_id() and returns the serached presentation by id.
         """
         return self.find_by_id(_id)
-    
+
     @jwt_required
-    def put(self, _id: int) -> list:
+    def put(self, _id: int) -> tuple:
         """
         Accesses Presentation.update() to update the presentation found by passed id and returns a list of saved presentations.
         """
@@ -48,7 +50,7 @@ class Presentation(Resource, ResourceHelper):
         return self.update(_id, data)
 
     @jwt_required
-    def delete(self, _id: int) -> list:
+    def delete(self, _id: int) -> tuple:
         """
         Accesses Presentation.destroy() to delete the presentation found by passed id and returns a list of saved presentation.
         """
@@ -61,6 +63,7 @@ class PresentationList(Resource, ResourceHelper):
 
     This class contains only PresentationList resource methods.
     """
+
     def __init__(self, model: Model = PresentationModel) -> None:
         """
         PresentationList Resource Constructor
@@ -69,14 +72,14 @@ class PresentationList(Resource, ResourceHelper):
         """
         super().__init__(model)
 
-    def get(self) -> list:
+    def get(self) -> tuple:
         """
         Accesses PresentationList.get_all() and returns presentations list.
         """
         return self.get_all()
 
     @jwt_required
-    def post(self) -> list:
+    def post(self) -> tuple:
         """
         Accesses PresentationList.store() to insert the presentation load by passed data and returns a list of saved presentation.
         """

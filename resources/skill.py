@@ -15,12 +15,14 @@ parser.add_argument('description', type=non_empty_string, required=True, help="R
 parser.add_argument('level', type=non_empty_string, required=True, help="Required field")
 parser.add_argument('segment_id', type=non_empty_string, required=True, help="Required field")
 
+
 class Skill(Resource, ResourceHelper):
     """
     Skill Resource Class
 
     This class contains only Skill resource methods.
     """
+
     def __init__(self, model: Model = SkillModel) -> None:
         """
         Skill Resource Constructor
@@ -28,15 +30,15 @@ class Skill(Resource, ResourceHelper):
         Loads the SkillModel passed as param.
         """
         super().__init__(model)
-    
-    def get(self, _id: int) -> dict:
+
+    def get(self, _id: int) -> tuple:
         """
         Accesses Skill.find_by_id() and returns the serached skill by id.
         """
         return self.find_by_id(_id)
-    
+
     @jwt_required
-    def put(self, _id: int) -> list:
+    def put(self, _id: int) -> tuple:
         """
         Accesses Skill.update() to update the skill found by passed id and returns a list of saved skills.
         """
@@ -45,7 +47,7 @@ class Skill(Resource, ResourceHelper):
         return self.update(_id, data)
 
     @jwt_required
-    def delete(self, _id: int) -> list:
+    def delete(self, _id: int) -> tuple:
         """
         Accesses Skill.destroy() to delete the skill found by passed id and returns a list of saved skill.
         """
@@ -58,6 +60,7 @@ class SkillList(Resource, ResourceHelper):
 
     This class contains only SkillList resource methods.
     """
+
     def __init__(self, model: Model = SkillModel) -> None:
         """
         SkillList Resource Constructor
@@ -66,14 +69,14 @@ class SkillList(Resource, ResourceHelper):
         """
         super().__init__(model)
 
-    def get(self) -> list:
+    def get(self) -> tuple:
         """
         Accesses SkillList.get_all() and returns skills list.
         """
         return self.get_all()
 
     @jwt_required
-    def post(self) -> list:
+    def post(self) -> tuple:
         """
         Accesses SkillList.store() to insert the skill load by passed data and returns a list of saved skills.
         """

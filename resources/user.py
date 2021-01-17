@@ -15,7 +15,7 @@ from flask_jwt_extended import (
     get_raw_jwt,
     jwt_required
 )
-from models.model import Model, DataBaseException, string_to_date
+from models.model import Model
 from models.user import UserModel
 from resources.resource import non_empty_string
 from blacklist import BLACKLIST
@@ -24,12 +24,14 @@ parser = reqparse.RequestParser()
 parser.add_argument('username', type=non_empty_string, required=True, help='Required field')
 parser.add_argument('password', type=non_empty_string, required=True, help='Required field')
 
+
 class User(Resource, ResourceHelper):
     """
     User Resource Class
 
     This class contains only User resource methods.
     """
+
     def __init__(self, model: Model = UserModel) -> None:
         """
         User Resource Constructor
@@ -37,9 +39,9 @@ class User(Resource, ResourceHelper):
         Loads the UserModel passed as param.
         """
         super().__init__(model)
-    
+
     @jwt_required
-    def get(self, _id: int) -> dict:
+    def get(self, _id: int) -> tuple:
         """
         Accesses UserModel.get_all() and returns the serached user by id. The user is allowed to 
         access your own data.
@@ -47,7 +49,7 @@ class User(Resource, ResourceHelper):
         current_user = get_jwt_identity()
         user = self.model.find_by_id(_id)
         if current_user and user and current_user == user.id:
-            return user.json()
+            return user.json(), 200
         else:
             return {'error': {'message': 'Forbidden request.'}}, 403
 
@@ -58,6 +60,7 @@ class ChangePassword(Resource):
 
     This module contains only a method to change the password.
     """
+
     def __init__(self, model: Model = UserModel) -> None:
         """
         ChangePassword Resource Constructor
@@ -65,18 +68,19 @@ class ChangePassword(Resource):
         Loads the UserModel passed as param.
         """
         self.model = model
-    
+
     def put(self):
-        #TODO Implement by access link
+        # TODO Implement by access link
         pass
 
- 
+
 class Login(Resource):
     """
     Login Resource Class
 
     This module contains only a method to login the user in app.
     """
+
     def __init__(self, model: Model = UserModel) -> None:
         """
         Login Resource Constructor
@@ -85,7 +89,7 @@ class Login(Resource):
         """
         self.model = model
 
-    def post(self) -> dict:
+    def post(self) -> tuple:
         """
         Accesses UserModel.find_by_username(), checks the user's credentials passed in request and 
         return an access token and a refresh token if the user's credentials are right.
@@ -107,8 +111,9 @@ class Logout(Resource):
 
     This module contains only a method to logout the user from app.
     """
+
     @jwt_required
-    def post(self) -> dict:
+    def post(self) -> tuple:
         """
         Logouts the user from app.
         """
@@ -124,8 +129,9 @@ class TokenRefresh(Resource):
 
     This module contains only a method to refresh the user's access token when expired.
     """
+
     @jwt_refresh_token_required
-    def post(self) -> dict:
+    def post(self) -> tuple:
         """
         Refreshes the user's access token.
         """

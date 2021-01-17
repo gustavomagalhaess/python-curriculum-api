@@ -17,12 +17,14 @@ parser.add_argument('url', type=non_empty_string, required=True, help="Required 
 parser.add_argument('segment_id', type=non_empty_string, required=True, help="Required field")
 parser.add_argument('company_id', type=non_empty_string, required=True, help="Required field")
 
+
 class Product(Resource, ResourceHelper):
     """
     Product Resource Class
 
     This class contains only Product resource methods.
     """
+
     def __init__(self, model: Model = ProductModel) -> None:
         """
         Product Resource Constructor
@@ -30,15 +32,15 @@ class Product(Resource, ResourceHelper):
         Loads the ProductModel passed as param.
         """
         super().__init__(model)
-    
-    def get(self, _id: int) -> dict:
+
+    def get(self, _id: int) -> tuple:
         """
         Accesses Product.find_by_id() and returns the serached product by id.
         """
         return self.find_by_id(_id)
-    
+
     @jwt_required
-    def put(self, _id: int) -> list:
+    def put(self, _id: int) -> tuple:
         """
         Accesses Product.update() to update the product found by passed id and returns a list of saved products.
         """
@@ -47,7 +49,7 @@ class Product(Resource, ResourceHelper):
         return self.update(_id, data)
 
     @jwt_required
-    def delete(self, _id: int) -> list:
+    def delete(self, _id: int) -> tuple:
         """
         Accesses Product.destroy() to delete the product found by passed id and returns a list of saved products.
         """
@@ -60,6 +62,7 @@ class ProductList(Resource, ResourceHelper):
 
     This class contains only ProductList resource methods.
     """
+
     def __init__(self, model: Model = ProductModel) -> None:
         """
         ProductList Resource Constructor
@@ -68,14 +71,14 @@ class ProductList(Resource, ResourceHelper):
         """
         super().__init__(model)
 
-    def get(self) -> list:
+    def get(self) -> tuple:
         """
         Accesses ProductList.get_all() and returns products list.
         """
         return self.get_all()
 
     @jwt_required
-    def post(self) -> list:
+    def post(self) -> tuple:
         """
         Accesses ProductList.store() to insert the product load by passed data and returns a list of saved products.
         """

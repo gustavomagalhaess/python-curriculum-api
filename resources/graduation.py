@@ -16,12 +16,14 @@ parser.add_argument('started_at', type=non_empty_string, required=True, help="Re
 parser.add_argument('ended_at')
 parser.add_argument('segment_id', type=non_empty_string, required=True, help="Required field")
 
+
 class Graduation(Resource, ResourceHelper):
     """
     Graduation Resource Class
 
     This class contains only Graduation resource methods.
     """
+
     def __init__(self, model: Model = GraduationModel) -> None:
         """
         Graduation Resource Constructor
@@ -29,13 +31,13 @@ class Graduation(Resource, ResourceHelper):
         Loads the GraduationModel passed as param.
         """
         super().__init__(model)
-    
+
     def get(self, _id: int) -> dict:
         """
         Accesses Graduation.find_by_id() and returns the serached graduation by id.
         """
         return self.find_by_id(_id)
-    
+
     @jwt_required
     def put(self, _id: int) -> list:
         """
@@ -59,6 +61,7 @@ class GraduationList(Resource, ResourceHelper):
 
     This class contains only GraduationList resource methods.
     """
+
     def __init__(self, model: Model = GraduationModel) -> None:
         """
         GraduationList Resource Constructor

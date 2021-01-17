@@ -8,6 +8,7 @@ from __future__ import annotations
 from database.db import db
 from models.model import Model, datetime
 
+
 class UserModel(db.Model, Model):
     """
     UserModel Class
@@ -16,13 +17,14 @@ class UserModel(db.Model, Model):
     """
     __tablename__ = 'users'
 
-    id         = db.Column(db.Integer, primary_key = True)
-    username   = db.Column(db.String(100), nullable = False, unique = True)
-    password   = db.Column(db.String(250), nullable = False)
-    created_at = db.Column(db.Date(), nullable = False, default = datetime.date.today())
+    id         = db.Column(db.Integer, primary_key=True)
+    username   = db.Column(db.String(100), nullable=False, unique=True)
+    password   = db.Column(db.String(250), nullable=False)
+    created_at = db.Column(db.Date(), nullable=False, default=datetime.date.today())
     updated_at = db.Column(db.Date())
 
-    def __init__(self, _id: int, username: str, password: str, created_at: datetime = None, updated_at: datetime = None) -> None:
+    def __init__(self, _id: int, username: str, password: str, created_at: datetime = None,
+                 updated_at: datetime = None) -> None:
         """
         Loads a UserModel.
         """
@@ -31,7 +33,7 @@ class UserModel(db.Model, Model):
         self.password   = password
         self.created_at = created_at
         self.updated_at = updated_at
-    
+
     def json(self) -> dict:
         """
         Retruns a UserModel as a json format.
@@ -47,4 +49,4 @@ class UserModel(db.Model, Model):
         """
         Returns a user found by username there is saved in database.
         """
-        return cls.query.filter_by(username = username).first()
+        return cls.query.filter_by(username=username).first()

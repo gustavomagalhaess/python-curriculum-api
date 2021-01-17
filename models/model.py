@@ -9,6 +9,7 @@ from __future__ import annotations
 from database.db import db, IntegrityError, SQLAlchemyError
 import datetime
 
+
 def string_to_date(string_date: str) -> datetime:
     """
     Converts the string_date string (YYYY-MM-DD) to datetime type.
@@ -17,23 +18,42 @@ def string_to_date(string_date: str) -> datetime:
 
     return datetime.datetime(Y, m, d)
 
+
 class DataBaseException(SQLAlchemyError):
     """
     DataBaseException class
 
     This class inherits from SQLAlchemyError class to be used as a Database Exception.
     """
+
     def __init__(self, message: str) -> None:
         self.message = message
 
 
-class Model():
+class Model:
     """
     Model Class
 
     This class contains common helper methods in all application. It's supposed to include here
     any new shared methods.
     """
+
+    def json(self):
+        """
+        This method should be implemented in inherited classes.
+        :return: dict
+        """
+        pass
+
+
+    def curriculum_json(self):
+        """
+        This method should be implemented in inherited classes.
+        :return: dict
+        """
+        pass
+
+
     @classmethod
     def get_all(cls) -> list:
         """
@@ -46,28 +66,28 @@ class Model():
         """
         Returns an item found by id there is saved in database.
         """
-        return cls.query.filter_by(id = _id).first()
-    
+        return cls.query.filter_by(id=_id).first()
+
     @classmethod
     def get_all_by_segment(cls, segment_id: int, order_by_date: bool = False) -> list:
         """
         Returns a list of items by segment_id there are saved in database.
         """
         if not order_by_date:
-            rows = cls.query.filter_by(segment_id = segment_id).order_by(cls.id.desc()).all()
+            rows = cls.query.filter_by(segment_id=segment_id).order_by(cls.id.desc()).all()
         elif hasattr(cls, 'started_at'):
-            rows = cls.query.filter_by(segment_id = segment_id).order_by(cls.started_at.desc()).all()
+            rows = cls.query.filter_by(segment_id=segment_id).order_by(cls.started_at.desc()).all()
         else:
-            rows = cls.query.filter_by(segment_id = segment_id).order_by(cls.performed_at.desc()).all()
-        
+            rows = cls.query.filter_by(segment_id=segment_id).order_by(cls.performed_at.desc()).all()
+
         return rows
-    
+
     @classmethod
     def get_current_by_segment(cls, segment_id: int) -> Model:
         """
         Returns an item by segment_id there is saved in database.
         """
-        return cls.query.filter_by(segment_id = segment_id).order_by(cls.id.desc()).first()
+        return cls.query.filter_by(segment_id=segment_id).order_by(cls.id.desc()).first()
 
     def save(self) -> None:
         """

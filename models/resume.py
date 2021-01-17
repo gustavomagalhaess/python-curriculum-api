@@ -8,6 +8,7 @@ from database.db import db
 from models.model import Model
 import datetime
 
+
 class ResumeModel(db.Model, Model):
     """
     ResumeModel Class
@@ -16,10 +17,10 @@ class ResumeModel(db.Model, Model):
     """
     __tablename__ = 'resumes'
 
-    id          = db.Column(db.Integer, primary_key = True)
-    description = db.Column(db.String(1000), nullable = False)
-    created_at  = db.Column(db.Date(), nullable = False, default = datetime.date.today())
-    segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable = False, default = 1)
+    id          = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(1000), nullable=False)
+    created_at  = db.Column(db.Date(), nullable=False, default=datetime.date.today())
+    segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable=False, default=1)
     segment     = db.relationship('SegmentModel')
 
     def __init__(self, description: str, segment_id: int, _id: int = None) -> None:
@@ -35,8 +36,8 @@ class ResumeModel(db.Model, Model):
         Retruns a ResumeModel as a json format.
         """
         return {
-            'id': self.id, 
-            'description': self.description, 
-            'created_at': self.created_at.isoformat(), 
+            'id': self.id,
+            'description': self.description,
+            'created_at': self.created_at.isoformat(),
             'segment': {'id': self.segment.id, 'name': self.segment.name}
         }

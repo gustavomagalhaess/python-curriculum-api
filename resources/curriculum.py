@@ -15,19 +15,21 @@ from models.company import CompanyModel
 from models.product import ProductModel
 from models.presentation import PresentationModel
 
+
 class Curriculum(Resource, ResourceHelper):
     """
     Curriculum Resource Class
 
     This class contains only Curriculum resource methods.
     """
+
     def __init__(self) -> None:
         """
         Curriculum Resource Constructor
         """
         super().__init__(None)
 
-    def get(self, segment_id: int) -> dict:
+    def get(self, segment_id: int) -> tuple:
         """
         Accesses ResumeModel, GraduationModel, CertificationModel, SkillModel, CompanyModel, 
         ProductModel, PresentationModel and returns all information by segment_id.
@@ -41,15 +43,15 @@ class Curriculum(Resource, ResourceHelper):
         presentations = PresentationModel.get_all_by_segment(segment_id, True)
 
         return {
-            'curriculum': 
-                {
-                    'resume': check_json(resume),
-                    'graduations': list_map(graduations),
-                    'certifications': list_map_curriculum(certifications),
-                    'skills': list_map_curriculum(skills),
-                    'companies': list_map_curriculum(companies),
-                    'products': list_map_curriculum(products),
-                    'presentations': list_map_curriculum(presentations)
+                   'curriculum':
+                       {
+                           'resume': check_json(resume),
+                           'graduations': list_map(graduations),
+                           'certifications': list_map_curriculum(certifications),
+                           'skills': list_map_curriculum(skills),
+                           'companies': list_map_curriculum(companies),
+                           'products': list_map_curriculum(products),
+                           'presentations': list_map_curriculum(presentations)
 
-                }
-        }, 200
+                       }
+               }, 200

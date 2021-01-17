@@ -13,12 +13,14 @@ parser = reqparse.RequestParser()
 parser.add_argument('name', type=non_empty_string, required=True, help="Required field")
 parser.add_argument('description', type=non_empty_string, required=True, help="Required field")
 
+
 class Segment(Resource, ResourceHelper):
     """
     Segment Resource Class
 
     This class contains only Segment resource methods.
     """
+
     def __init__(self, model: Model = SegmentModel) -> None:
         """
         Segment Resource Constructor
@@ -26,15 +28,15 @@ class Segment(Resource, ResourceHelper):
         Loads the SegmentModel passed as param.
         """
         super().__init__(model)
-    
-    def get(self, _id: int) -> dict:
+
+    def get(self, _id: int) -> tuple:
         """
         Accesses Segment.find_by_id() and returns the serached segment by id.
         """
         return self.find_by_id(_id)
-    
+
     @jwt_required
-    def put(self, _id: int) -> list:
+    def put(self, _id: int) -> tuple:
         """
         Accesses Segment.update() to update the segment found by passed id and returns a list of saved segments.
         """
@@ -43,7 +45,7 @@ class Segment(Resource, ResourceHelper):
         return self.update(_id, data)
 
     @jwt_required
-    def delete(self, _id: int) -> list:
+    def delete(self, _id: int) -> tuple:
         """
         Accesses Segment.destroy() to delete the segment found by passed id and returns a list of saved segments.
         """
@@ -56,6 +58,7 @@ class SegmentList(Resource, ResourceHelper):
 
     This class contains only SegmentList resource methods.
     """
+
     def __init__(self, model: Model = SegmentModel) -> None:
         """
         SegmentList Resource Constructor
@@ -64,14 +67,14 @@ class SegmentList(Resource, ResourceHelper):
         """
         super().__init__(model)
 
-    def get(self) -> list:
+    def get(self) -> tuple:
         """
         Accesses SegmentList.get_all() and returns segments list.
         """
         return self.get_all()
 
     @jwt_required
-    def post(self) -> list:
+    def post(self) -> tuple:
         """
         Accesses SegmentList.store() to insert the segment load by passed data and returns a list of saved segments.
         """

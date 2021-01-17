@@ -16,12 +16,14 @@ parser.add_argument('issued_at', type=non_empty_string, required=True, help="Req
 parser.add_argument('expires_at')
 parser.add_argument('segment_id', type=non_empty_string, required=True, help="Required field")
 
+
 class Certification(Resource, ResourceHelper):
     """
     Certification Resource Class
 
     This class contains only Certification resource methods.
     """
+
     def __init__(self, model: Model = CertificationModel) -> None:
         """
         Certification Resource Constructor
@@ -29,15 +31,15 @@ class Certification(Resource, ResourceHelper):
         Loads the CertificationModel passed as param.
         """
         super().__init__(model)
-    
-    def get(self, _id: int) -> dict:
+
+    def get(self, _id: int) -> tuple:
         """
         Accesses Certification.find_by_id() and returns the serached certification by id.
         """
         return self.find_by_id(_id)
-    
+
     @jwt_required
-    def put(self, _id: int) -> list:
+    def put(self, _id: int) -> tuple:
         """
         Accesses Certification.update() to update the certification found by passed id and returns a list of saved certifications.
         """
@@ -46,7 +48,7 @@ class Certification(Resource, ResourceHelper):
         return self.update(_id, data)
 
     @jwt_required
-    def delete(self, _id: int) -> list:
+    def delete(self, _id: int) -> tuple:
         """
         Accesses Certification.destroy() to delete the certification found by passed id and returns a list of saved certification.
         """
@@ -59,6 +61,7 @@ class CertificationList(Resource, ResourceHelper):
 
     This class contains only CertificationList resource methods.
     """
+
     def __init__(self, model: Model = CertificationModel) -> None:
         """
         CertificationList Resource Constructor
@@ -67,14 +70,14 @@ class CertificationList(Resource, ResourceHelper):
         """
         super().__init__(model)
 
-    def get(self) -> list:
+    def get(self) -> tuple:
         """
         Accesses CertificationList.get_all() and returns certifications list.
         """
         return self.get_all()
 
     @jwt_required
-    def post(self) -> list:
+    def post(self) -> tuple:
         """
         Accesses CertificationList.store() to insert the certification load by passed data and returns a list of saved certifications.
         """

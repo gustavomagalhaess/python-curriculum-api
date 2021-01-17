@@ -7,6 +7,7 @@ This module contains only GraduationModel methods.
 from database.db import db
 from models.model import Model, datetime, string_to_date
 
+
 class GraduationModel(db.Model, Model):
     """
     GraduationModel Class
@@ -16,15 +17,16 @@ class GraduationModel(db.Model, Model):
 
     __tablename__ = 'graduations'
 
-    id          = db.Column(db.Integer, primary_key = True)
-    course      = db.Column(db.String(50), nullable = False, unique = True)
-    institution = db.Column(db.String(100), nullable = False, unique = True)
-    started_at  = db.Column(db.Date(), nullable = False, default = datetime.date.today(), unique = True)
+    id          = db.Column(db.Integer, primary_key=True)
+    course      = db.Column(db.String(50), nullable=False, unique=True)
+    institution = db.Column(db.String(100), nullable=False, unique=True)
+    started_at  = db.Column(db.Date(), nullable=False, default=datetime.date.today(), unique=True)
     ended_at    = db.Column(db.Date())
-    segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable = False, default = 1)
+    segment_id  = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable=False, default=1)
     segment     = db.relationship('SegmentModel')
 
-    def __init__(self, course: str, institution: str, started_at: datetime, segment_id: int, ended_at: datetime = None, _id: int = None) -> None:
+    def __init__(self, course: str, institution: str, started_at: datetime, segment_id: int, ended_at: datetime = None,
+                 _id: int = None) -> None:
         """
         Loads a GraduationModel.
         """

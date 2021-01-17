@@ -7,6 +7,7 @@ This module contains only SegmentModel methods.
 from database.db import db
 from models.model import Model
 
+
 class SegmentModel(db.Model, Model):
     """
     SegmentModel Class
@@ -15,9 +16,9 @@ class SegmentModel(db.Model, Model):
     """
     __tablename__ = 'segments'
 
-    id          = db.Column(db.Integer(), primary_key = True)
-    name        = db.Column(db.String(50), nullable = False, unique = True)
-    description = db.Column(db.String(100), nullable = False)
+    id          = db.Column(db.Integer(), primary_key=True)
+    name        = db.Column(db.String(50), nullable=False, unique=True)
+    description = db.Column(db.String(100), nullable=False)
 
     def __init__(self, name: str, description: str, _id: int = None) -> None:
         """
@@ -26,7 +27,7 @@ class SegmentModel(db.Model, Model):
         self.id          = _id
         self.name        = name
         self.description = description
-    
+
     def json(self) -> dict:
         """
         Retruns a SkillModel as a json format.

@@ -7,6 +7,7 @@ This module contains only CertificationModel methods.
 from database.db import db
 from models.model import Model, datetime, string_to_date
 
+
 class CertificationModel(db.Model, Model):
     """
     CertificationModel Class
@@ -15,15 +16,16 @@ class CertificationModel(db.Model, Model):
     """
     __tablename__ = 'certifications'
 
-    id           = db.Column(db.Integer, primary_key = True)
-    name         = db.Column(db.String(100), nullable = False, unique = True)
-    organization = db.Column(db.String(100), nullable = False, unique = True)
-    issued_at    = db.Column(db.Date(), nullable = False, default = datetime.date.today(), unique = True)
+    id           = db.Column(db.Integer, primary_key=True)
+    name         = db.Column(db.String(100), nullable=False, unique=True)
+    organization = db.Column(db.String(100), nullable=False, unique=True)
+    issued_at    = db.Column(db.Date(), nullable=False, default=datetime.date.today(), unique=True)
     expires_at   = db.Column(db.Date())
-    segment_id   = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable = False, default = 1)
+    segment_id   = db.Column(db.Integer, db.ForeignKey('segments.id'), nullable=False, default=1)
     segment      = db.relationship('SegmentModel')
 
-    def __init__(self, name: str, organization: str, issued_at: datetime, segment_id: int, expires_at: datetime = None, _id: int = None) -> None:
+    def __init__(self, name: str, organization: str, issued_at: datetime, segment_id: int, expires_at: datetime = None,
+                 _id: int = None) -> None:
         """
         Loads a CertificationModel.
         """
